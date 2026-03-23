@@ -1,0 +1,68 @@
+//Leetcode_342
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        if(n<=0) return false;
+        return (n&(n-1))==0 && (n & 0x55555555)!=0;
+    }
+}
+//Leetcode_191
+class Solution {
+    public int hammingWeight(int n) {
+        int count=0;
+        while(n!=0){
+            n=n&(n-1);
+            count++;
+        }
+        return count;
+    }
+}
+//Leetcode_509
+class Solution {
+    public int fib(int n) {
+        if(n<=1){
+            return n;
+        }
+        int a=0;
+        int b=1;
+        for(int i=2;i<=n;i++){
+            int c=a+b;
+            a=b;
+            b=c;
+        }
+            return b;
+      }
+}
+//Leetcode_400
+class Solution {
+    public int findNthDigit(int n) {
+      long len=1;
+      long count=9;
+      long start=1;
+      while(n>len*count){
+        n-=len*count;
+        len++;
+        count*=10;
+        start*=10;
+      }  
+      start=start+(n-1)/len;
+      String s=Long.toString(start);
+      return s.charAt((int)((n-1)%len))-'0';
+    }
+}
+//Leetcode_172
+class Solution {
+    public int trailingZeroes(int n) {
+     int count=0;
+     while(n>0){
+        n=n/5;
+        count+=n;
+     }   
+     return count;
+    }
+}
+//Leetcode_319
+class Solution {
+    public int bulbSwitch(int n) {
+        return (int)Math.sqrt(n);
+    }
+}
