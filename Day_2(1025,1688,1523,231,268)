@@ -1,0 +1,46 @@
+//Leetcode_1025_Divisor_Game
+class Solution {
+    public boolean divisorGame(int n) {
+        if(n%2==0){
+            return true;
+        }
+        else return false;
+    }
+}
+//Leetcode_1688_Count_of_matches_in_tournoment
+class Solution {
+    public int numberOfMatches(int n) {
+        return n-1;
+    }
+}
+//Leetcode_1523_count_odd_numbers
+class Solution {
+    public int countOdds(int low, int high) {
+        int val=(high-low)+1;
+        if(low%2!=0 && high%2!=0){
+            return (val/2)+1;
+
+        }
+        else return val/2;
+    }
+}
+//Leetcode_231_power_of_2
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+    if(n<=0) return false;
+    if((n & (n-1))==0) return true;
+    else return false;
+    }
+}
+//Leetcode_268_missing_number
+class Solution {
+    public int missingNumber(int[] nums) {
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            sum=sum+nums[i];
+        }
+        int a=nums.length;
+        int orisum=(a*(a+1))/2;
+        return orisum-sum;
+    }
+}
