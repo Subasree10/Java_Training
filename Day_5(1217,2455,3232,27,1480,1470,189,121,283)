@@ -1,0 +1,125 @@
+// Leetcode 1217
+class Solution {
+    public int minCostToMoveChips(int[] position) {
+    int odd=0,even=0;
+        for(int i=0;i<position.length;i++){
+            if(position[i]%2==0){
+                even++;
+            }
+            else{
+                odd++;
+            }
+        }
+        return Math.min(even,odd);
+    }
+}
+//Leetcode 2455
+class Solution {
+    public int averageValue(int[] nums) {
+        int count=0,sum=0;
+        for(int n:nums){
+            if(n%6==0){
+                sum+=n;
+                count++;
+            }
+            
+        }
+        return count==0? 0:sum/count;
+    }
+}
+//Leetcode 3232
+class Solution {
+    public boolean canAliceWin(int[] nums) { 
+        int sum=0;
+        for(int n:nums){
+            if(n<10) sum+=n;
+            else sum-=n;
+            
+        }
+        return (sum!=0)? true:false;
+    }
+}
+//Leetcode 27
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int k=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=val){
+                nums[k]=nums[i];
+                k++;
+            }
+        }
+        return k;
+    }
+}
+//Leetcode 1480
+class Solution {
+    public int[] runningSum(int[] nums) {
+        for(int i=1;i<nums.length;i++){
+            nums[i]+=nums[i-1];
+        }
+        return nums;
+    }
+}
+//Leetcode 1470
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int[] result=new int[2*n];
+        int index=0;
+        for(int i=0;i<n;i++){
+            result[index++]=nums[i];
+            result[index++]=nums[i+n];
+        }
+        return result;
+    }
+}
+//Leetcode 189
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int n=nums.length;
+        k=k%n;
+        reverse(nums,0,n-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,n-1);
+    }
+    private void reverse(int[] nums, int start,int end){
+        while(start<end){
+            int temp=nums[start];
+            nums[start]=nums[end];
+            nums[end]=temp;
+            start++;
+            end--;
+        }
+    }
+}
+//Leetcode 121
+class Solution {
+    public int maxProfit(int[] prices) {
+        int minprice=Integer.MAX_VALUE;
+        int maxprofit=0;
+        for(int price:prices){
+            if(price<minprice){
+                minprice=price;
+            }
+            else{
+                int profit=price-minprice;
+                maxprofit=Math.max(maxprofit,profit);
+            }
+        }
+        return maxprofit;
+    }
+}
+//Leetcode 283
+class Solution {
+    public void moveZeroes(int[] nums) {
+       int k=0;
+       for(int i=0;i<nums.length;i++){
+        if(nums[i]!=0){
+            int temp=nums[i];
+            nums[i]=nums[k];
+            nums[k]=temp;
+            k++;
+        }
+       } 
+    }
+}
